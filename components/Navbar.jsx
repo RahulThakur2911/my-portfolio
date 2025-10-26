@@ -53,7 +53,6 @@ const Navbar = () => {
     right-0  
     z-50 h-screen bg-rose-50 transition duration-500
     ${menuOpen ? 'translate-x-0' : 'translate-x-full'} 
-    // ^ Menu open: dikhao (0), Menu closed: chhipao (full width)
 `}>
 
                     <div className='absolute top-6 right-6'
