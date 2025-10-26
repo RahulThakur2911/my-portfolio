@@ -52,7 +52,7 @@ const Navbar = () => {
     top-0 bottom-0 w-64
     right-0  
     z-50 h-screen bg-rose-50 transition duration-500
-    ${menuOpen ? 'translate-x-0' : 'translate-x-full'} 
+    ${menuOpen ? 'translate-x-0' : 'translate-x-full'} o
 `}>
 
                     <div className='absolute top-6 right-6'
