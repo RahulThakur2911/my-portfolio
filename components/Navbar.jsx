@@ -1,18 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
 import { assets } from '../assets/assets'
 
 const Navbar = () => {
 
-    const myRef = useRef();
+    const [menuOpen, setMenuOpen] = useState(false);
 
-    const openMenu = () => {
-        myRef.current.style.transform = "translateX(-16rem)"
-    }
-
-    const closeMenu = () => {
-        myRef.current.style.transform = "translateX(16rem)"
+    const toggleMenu = () => {
+        setMenuOpen(prev => !prev)
     }
     return (
         <>
@@ -43,7 +39,7 @@ const Navbar = () => {
                     </Link>
 
                     <button className='block md:hidden ml-3'
-                        onClick={openMenu}
+                        onClick={toggleMenu}
                     >
                         <Image src={assets.menu_black} alt='Menu-icon' className='w-6' />
                     </button>
@@ -51,17 +47,25 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile menu */}
-                <ul ref={myRef} className='flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-54 z-50 h-screen bg-rose-50 transition duration-500'>
+                <ul className={`
+    flex md:hidden flex-col gap-4 py-20 px-10 fixed 
+    top-0 bottom-0 w-64
+    right-0  
+    z-50 h-screen bg-rose-50 transition duration-500
+    ${menuOpen ? 'translate-x-0' : 'translate-x-full'} 
+    // ^ Menu open: dikhao (0), Menu closed: chhipao (full width)
+`}>
+
                     <div className='absolute top-6 right-6'
-                        onClick={closeMenu}
+                        onClick={toggleMenu}
                     >
                         <Image src={assets.close_black} alt='' className='w-5 cursor-pointer' />
                     </div>
-                    <li><Link href={"#top"} onClick={closeMenu}>Home</Link></li>
-                    <li><Link href={"#aboout"} onClick={closeMenu}>About</Link></li>
-                    <li><Link href={"#services"} onClick={closeMenu}>Services</Link></li>
-                    <li><Link href={"#work"} onClick={closeMenu}>My work</Link></li>
-                    <li><Link href={"#contact"} onClick={closeMenu}>Contact</Link></li>
+                    <li><Link href={"#top"} onClick={toggleMenu}>Home</Link></li>
+                    <li><Link href={"#aboout"} onClick={toggleMenu}>About</Link></li>
+                    <li><Link href={"#services"} onClick={toggleMenu}>Services</Link></li>
+                    <li><Link href={"#work"} onClick={toggleMenu}>My work</Link></li>
+                    <li><Link href={"#contact"} onClick={toggleMenu}>Contact</Link></li>
                 </ul>
             </nav>
         </>
