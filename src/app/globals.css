@@ -4,8 +4,15 @@
   font-family: var(--font-outfit);
 }
 
+
 @theme {
+  /* colors */
   --color-lightHover: #fcf4ff;
   --color-darkHover: #2a004a;
   --color-darkTheme: #11001F;
+
+  /* shadows */
+  --shadow-light: 4px 4px 0 #000;
+  --shadow-dark: 4px 4px 0 #fff
 }
+

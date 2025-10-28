@@ -23,7 +23,7 @@ const Navbar = () => {
 
                 <ul className='hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3'>
                     <li><Link href={"#top"} className='font-[var(--font-ovo)]'>Home</Link></li>
-                    <li><Link href={"#aboout"}>About</Link></li>
+                    <li><Link href={"#about"}>About</Link></li>
                     <li><Link href={"#services"}>Services</Link></li>
                     <li><Link href={"#work"}>My work</Link></li>
                     <li><Link href={"#contact"}>Contact</Link></li>
